@@ -35,7 +35,6 @@ services:
     restart: unless-stopped
   jenkins:
     container_name: jenkins
-    build: ./jenkins
     image: jenkins/jenkins:jdk17
     volumes:
      - jenkins_home:/var/jenkins_home
