@@ -20,6 +20,7 @@ pipeline {
               steps {
                   echo 'starting test.....'
                   sh 'mvn surefire:test -f backend'
+                  junit 'tests/results/*.xml'
                   echo 'finished test'
               }
           }
