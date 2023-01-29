@@ -26,7 +26,6 @@ services:
   backend:
     container_name: backend
     build: ./backend
-    image: tomcat:11.0.0-M1jdk17
     volumes:
       - ./webapps:/usr/local/tomcat/webapps
       - m2repo:/root/.m2/repository
