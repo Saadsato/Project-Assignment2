@@ -16,6 +16,13 @@ pipeline {
 
               }
           }
+           stage('test') {
+              steps {
+                  echo 'starting test.....'
+                  sh 'mvn surefire:test -f backend'
+                  echo 'finished test'
+              }
+          }
       }  
         
       post {
