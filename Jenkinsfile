@@ -20,17 +20,16 @@ pipeline {
               steps {
                   echo 'starting test.....'
                   sh 'mvn surefire:test -f backend'
-                  junit 'tests/results/*.xml'
                   echo 'finished test'
               }
           }
       }  
         
-      post {
-          always {
-              echo 'generating test report....'
-              junit 'target/*reports/**/*.xml'
-              echo 'test report generated'
-          }
-      }
+    post {
+        always {
+            echo 'generating test report....'
+            junit 'target/*reports/**/*.xml'
+            echo 'test report generated'
+        }
+    }
 }
