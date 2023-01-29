@@ -8,7 +8,7 @@ pipeline {
       stages {
           stage('clean and checkout') {
               steps {
-                  sh 'mvn clean'
+                  sh 'mvn clean -f backend'
                   echo 'downloading github project...'
                   git branch: 'main', url: 'https://github.com/Saadsato/Project-Assignment2.git'
 
@@ -18,7 +18,7 @@ pipeline {
           stage('build') {
               steps {
                   echo 'building...'
-                  sh 'mvn test-compile'
+                  sh 'mvn test-compile -f backend'
                   echo 'finished building'
               }
           }
@@ -26,7 +26,7 @@ pipeline {
           stage('test') {
               steps {
                   echo 'starting test.....'
-                  sh 'mvn surefire:test'
+                  sh 'mvn surefire:test -f backend'
                   echo 'finished test'
               }
           }
@@ -34,7 +34,7 @@ pipeline {
           stage('package') {
               steps {
                   echo 'packaging...'
-                  sh 'mvn war:war'
+                  sh 'mvn war:war -f backend'
                   echo 'packaged'
               }
           }
