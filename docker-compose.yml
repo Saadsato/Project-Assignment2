@@ -37,7 +37,7 @@ services:
     image: jenkins/jenkins:jdk17
     volumes:
      - jenkins_home:/var/jenkins_home
-     - ./webapps:/usr/local/tomcat/webapps
+     - ./webapps:/artifacts
     ports:
         - 8050:8080
         - 50000:50000
