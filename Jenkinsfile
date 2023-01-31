@@ -42,9 +42,11 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'pwd'
-                sh 'cp ./backend/target/ROOT.war /artifacts'
-                
+                dir('./backend'){
+
+                     sh 'pwd'
+                    sh 'cp ./target/ROOT.war /artifacts'
+                }
             }
         }
     }
