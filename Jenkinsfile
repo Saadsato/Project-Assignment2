@@ -36,7 +36,7 @@ pipeline {
         stage('package') {
             steps {
                 echo 'packaging...'
-                sh 'mvn jar:jar -f backend'
+                sh 'mvn war:war -f backend'
                 echo 'packaged'
             }
         }
