@@ -43,10 +43,18 @@ pipeline {
         stage('deploy') {
             steps {
                 dir('./backend'){
-
-                     sh 'pwd'
+                    sh 'pwd'
                     sh 'cp ./target/ROOT.war /artifacts'
                 }
+            }
+        }
+    }
+    post {
+        always {
+            dir('./backend'){
+                echo 'generating test report....'
+                junit 'target/*reports/**/*.xml'
+                echo 'test report generated'
             }
         }
     }
